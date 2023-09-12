@@ -1,0 +1,47 @@
+#Public links all users
+index:
+    path: /
+    controller: App\Controller\HomeController::index
+
+shop:
+    path: /shop
+    controller: App\Controller\ShopController::index
+
+#Public links end
+
+product:
+    path: /product
+    controller: App\Controller\ProductController::index
+
+create-product:
+    path: /create-product
+    controller: App\Controller\ProductController::createProduct
+
+edit-product:
+    path: /edit-product{id}
+    controller: App\Controller\ProductController::editProduct
+
+delete-product:
+    path: /delete-product{id}
+    controller: App\Controller\ProductController::deleteProduct
+
+#create-all-properties:
+    #path: /create-all-properties
+    #controller: App\Controller\ProductPropertiesController::index
+
+create-category:
+    path: /create-category
+    controller: App\Controller\ProductPropertiesController::createCategory
+
+create-company:
+    path: /create-company
+    controller: App\Controller\ProductPropertiesController::createCompany
+
+create-region:
+    path: /create-region
+    controller: App\Controller\ProductPropertiesController::createRegion
+
+create-vine-grape:
+    path: /create-vine-grape
+    controller: App\Controller\ProductPropertiesController::createVineGrape
+

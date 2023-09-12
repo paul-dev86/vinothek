@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,700;1,200;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ysabeau+Infant:ital@0;1&display=swap");
+
+:root {
+    --bg-color: #f1f1f1;
+    --bg-white: #ffffff;
+    --green-bg: rgb(199, 233, 204);
+    --green-hover: #1b8627;
+    --wine-color: #851345;
+    --success: #46A049;
+    --text-light: #f2f2f2;
+    --text-dark: #181818;
+    --nunito-font: 'Nunito', sans-serif;
+    --ysabeau-font: 'Ysabeau Infant', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: var(--nunito-font);
+}
+
+html {
+    overflow-x: hidden;
+    color: var(--text-dark);
+}
+
+body {
+    background: var(--bg-white);
+}
+
+h1 h2 h3 {
+    font-family: var(--nunito-font);
+    font-style: normal;
+    font-weight: bolder;
+}
+
+h4 h5 h6 {
+    font-style: normal;
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    width: 100%;
+    max-height: 6rem;
+    padding: 2rem 1.5rem;
+    overflow: hidden;
+    background: var(--bg-color);
+    z-index: 2000;
+}
+
+.header .logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--green-hover);
+}
+
+.header .logo span {
+    color: var(--wine-color);
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.header-nav ul {
+    margin: 0;
+}
+
+.header-nav li {
+    display: inline-block;
+    position: relative;
+    list-style: none;
+    padding: 0 2rem;
+}
+
+.header-nav li a {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+.header-nav li a:hover {
+    color: var(--green-hover);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.buttons .btn-basket {
+    position: relative;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-dark);
+    margin-right: 3rem;
+}
+
+.counter {
+    position: absolute;
+    font-size: 0.9rem;
+    background-color: red;
+    top: -5px;
+    right: -6px;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 5px 3px;
+    color: var(--text-light);
+}
+
+.set {
+    opacity: inherit;
+}
+
+/* TODO button use bootstrap  */
+
+.buttons .btn-login {
+    padding: 0.3rem 0.5rem;
+    font-size: 1.3rem;
+    border-radius: 0.8rem;
+    border: 1px solid var(--success);
+    transition: 0.3s ease;
+}
+
+.buttons .btn-login:hover {
+    background-color: var(--green-bg);
+}
+
+.buttons .btn-login a {
+    color: var(--success);
+    transition: 0.3s ease;
+}
+
+.buttons .btn-login a:hover {
+    color: var(--text-dark);
+}
+
+.container {
+    margin-top: 2rem;
+    z-index: 1999;
+}

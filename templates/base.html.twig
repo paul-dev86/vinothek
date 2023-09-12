@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('img/svg/purple-grapes-icon.svg') }}">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{{ asset('plugins/line-awesome/css/line-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}">
+    </head>
+    <body>
+        <header class="header">
+            <a class="logo" href="{{ path('index') }}">Vino<span>thek</span></a>
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="{{ path('shop') }}">Shop</a></li>
+                    <li><a href="#">Weinschule</a></li>
+                    <li><a href="#">Über uns</a></li>
+                    <li><a href="#">Kontakt</a></li>
+                </ul>
+            </nav>
+            <div class="buttons">
+                <a href="#" class="btn-basket">
+                    <i class='bx bx-shopping-bag'></i>
+                    <span class="counter">12</span>
+                </a>
+                <button class="btn-login"><a href="#">LogIn</a></button>
+            </div>
+        </header>
+        {% block body %}{% endblock %}
+        <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    </body>
+</html>
