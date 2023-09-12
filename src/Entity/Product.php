@@ -74,10 +74,6 @@ class Product
      */
     private $vine;
 
-    public function __construct()
-    {
-        $this->vine = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {

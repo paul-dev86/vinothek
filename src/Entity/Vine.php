@@ -80,4 +80,9 @@ class Vine
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->grapeVarietyName;
+    }
 }
