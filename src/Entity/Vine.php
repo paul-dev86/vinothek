@@ -25,7 +25,7 @@ class Vine
     private $grapeVarietyName;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="vine")
+     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="vine")
      */
     private $products;
 
@@ -63,7 +63,7 @@ class Vine
     {
         if (!$this->products->contains($product)) {
             $this->products[] = $product;
-            $product->addVine($this);
+            $product->setVine($this);
         }
 
         return $this;
@@ -72,7 +72,10 @@ class Vine
     public function removeProduct(Product $product): self
     {
         if ($this->products->removeElement($product)) {
-            $product->removeVine($this);
+            // set the owning side to null (unless already changed)
+            if ($product->getVine() === $this) {
+                $product->setVine(null);
+            }
         }
 
         return $this;

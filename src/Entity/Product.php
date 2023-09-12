@@ -70,7 +70,7 @@ class Product
     private $region;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Vine::class, inversedBy="products")
+     * @ORM\ManyToOne(targetEntity=Vine::class, inversedBy="products")
      */
     private $vine;
 
@@ -204,26 +204,15 @@ class Product
         return $this;
     }
 
-    /**
-     * @return Collection<int, Vine>
-     */
-    public function getVine(): Collection
+
+    public function getVine(): ?Vine
     {
         return $this->vine;
     }
 
-    public function addVine(Vine $vine): self
+    public function setVine(?Vine $vine): self
     {
-        if (!$this->vine->contains($vine)) {
-            $this->vine[] = $vine;
-        }
-
-        return $this;
-    }
-
-    public function removeVine(Vine $vine): self
-    {
-        $this->vine->removeElement($vine);
+        $this->vine = $vine;
 
         return $this;
     }
