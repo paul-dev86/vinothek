@@ -10,6 +10,7 @@ return [
     [ // $staticRoutes
         '/' => [[['_route' => 'index', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/shop' => [[['_route' => 'shop', '_controller' => 'App\\Controller\\ShopController::index'], null, null, null, false, false, null]],
+        '/basket' => [[['_route' => 'basket', '_controller' => 'App\\Controller\\BasketController::index'], null, null, null, false, false, null]],
         '/product' => [[['_route' => 'product', '_controller' => 'App\\Controller\\ProductController::index'], null, null, null, false, false, null]],
         '/create-product' => [[['_route' => 'create-product', '_controller' => 'App\\Controller\\ProductController::createProduct'], null, null, null, false, false, null]],
         '/create-category' => [[['_route' => 'create-category', '_controller' => 'App\\Controller\\ProductPropertiesController::createCategory'], null, null, null, false, false, null]],

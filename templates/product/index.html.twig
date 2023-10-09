@@ -3,5 +3,40 @@
 {% block title %} Produktübersicht {% endblock %}
 
 {% block body %}
-
+    <div class="container py-3">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Artikel Nr.</td>
+                    <td>Produkt Name</td>
+                    <td>Beschreibung</td>
+                    <td>Einkaufspreis</td>
+                    <td>Verkaufspreis</td>
+                    <td>Gewicht / Inhalt</td>
+                    <td>Hersteller</td>
+                    <td>Rebsorte</td>
+                    <td>Herkunft</td>
+                    <td>Löschen</td>
+                    <td>Bearbeiten</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.productNumber }}</td>
+                    <td>{{ product.productName }}</td>
+                    <td>{{ product.productInfo }}</td>
+                    <td>{{ product.productPrice|number_format(2, ',', '.') }} €</td>
+                    <td>{{ product.retailPrice|number_format(2, ',', '.') }} €</td>
+                    <td>{{ product.weight|number_format(2, ',', '.') }} l / kg</td>
+                    <td>{{ product.company }}</td>
+                    <td>{{ product.vine }}</td>
+                    <td>{{ product.country ~ ' ' ~ product.region }}</td>
+                    <td><button class="btn btn-danger">{# product. #} <i class="lar la-trash-alt"></i></button></td>
+                    <td><button class="btn btn-primary">{# product. #} <i class="lar la-edit"></i></button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

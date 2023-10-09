@@ -164,3 +164,23 @@ a {
     margin-top: 2rem;
     z-index: 1999;
 }
+
+.shop-category {
+    color: var(--text-dark);
+    transition: all 0.3s ease-in-out;
+}
+
+
+.shop-c-list {
+    margin: 15px;
+}
+
+.shop-c-list:hover {
+
+}
+
+.category-active {
+    color: var(--green-hover);
+    border-radius: 25px;
+    background-color: var(--bg-color);
+}

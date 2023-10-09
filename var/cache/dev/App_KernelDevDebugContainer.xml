@@ -201,6 +201,13 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Controller\BasketController" class="App\Controller\BasketController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.GNc8e5B.App\Controller\BasketController"/>
+      </call>
+    </service>
     <service id="App\Controller\HomeController" class="App\Controller\HomeController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -3647,6 +3654,9 @@
         <argument>Hash a user password</argument>
       </call>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\BasketController" class="App\Controller\BasketController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\BasketController" class="App\Controller\BasketController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\BasketController" class="App\Controller\BasketController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4001,29 +4011,41 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
+    <service id=".service_locator.y2D9fmo" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="productRepo" type="service_closure" id="App\Repository\ProductRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.T7xmfzk" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="doctrine" type="service_closure" id="doctrine"/>
       </argument>
     </service>
-    <service id=".service_locator.qme8UZJ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.kSuZsKG" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ProductController::createProduct" type="service_closure" id=".service_locator.T7xmfzk"/>
+        <argument key="App\Controller\ProductController::editProduct" type="service_closure" id=".service_locator.y2D9fmo"/>
+        <argument key="App\Controller\ProductController::index" type="service_closure" id=".service_locator.y2D9fmo"/>
         <argument key="App\Controller\ProductPropertiesController::createCategory" type="service_closure" id=".service_locator.T7xmfzk"/>
         <argument key="App\Controller\ProductPropertiesController::createCompany" type="service_closure" id=".service_locator.T7xmfzk"/>
         <argument key="App\Controller\ProductPropertiesController::createRegion" type="service_closure" id=".service_locator.T7xmfzk"/>
         <argument key="App\Controller\ProductPropertiesController::createVineGrape" type="service_closure" id=".service_locator.T7xmfzk"/>
+        <argument key="App\Controller\ShopController::index" type="service_closure" id=".service_locator.y2D9fmo"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Controller\ProductController:createProduct" type="service_closure" id=".service_locator.T7xmfzk"/>
+        <argument key="App\Controller\ProductController:editProduct" type="service_closure" id=".service_locator.y2D9fmo"/>
+        <argument key="App\Controller\ProductController:index" type="service_closure" id=".service_locator.y2D9fmo"/>
         <argument key="App\Controller\ProductPropertiesController:createCategory" type="service_closure" id=".service_locator.T7xmfzk"/>
         <argument key="App\Controller\ProductPropertiesController:createCompany" type="service_closure" id=".service_locator.T7xmfzk"/>
         <argument key="App\Controller\ProductPropertiesController:createRegion" type="service_closure" id=".service_locator.T7xmfzk"/>
         <argument key="App\Controller\ProductPropertiesController:createVineGrape" type="service_closure" id=".service_locator.T7xmfzk"/>
+        <argument key="App\Controller\ShopController:index" type="service_closure" id=".service_locator.y2D9fmo"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
       </argument>
@@ -4154,6 +4176,12 @@
         <argument key="session" type="service_closure" id=".session.deprecated" on-invalid="ignore"/>
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
+    </service>
+    <service id=".service_locator.GNc8e5B.App\Controller\BasketController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\BasketController"/>
+      <argument>App\Controller\BasketController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.GNc8e5B" method="withContext"/>
     </service>
     <service id=".service_locator.GNc8e5B.App\Controller\HomeController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\HomeController"/>
@@ -4298,12 +4326,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.qme8UZJ"/>
+      <argument type="service" id=".service_locator.kSuZsKG"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.qme8UZJ"/>
+      <argument type="service" id=".service_locator.kSuZsKG"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -4997,7 +5025,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.qme8UZJ"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.kSuZsKG"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -5005,7 +5033,7 @@
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
-    <service id=".service_locator.La6iznJ" alias=".service_locator.qme8UZJ"/>
+    <service id=".service_locator.vHKnpR0" alias=".service_locator.kSuZsKG"/>
     <service id=".service_locator.zWlSdcl" alias=".service_locator.93CgLf1"/>
     <service id=".service_locator.4hi2aOY" alias=".service_locator.bBRwv06"/>
     <service id=".service_locator.W9y3dzm" alias=".service_locator.GNc8e5B"/>
@@ -5026,6 +5054,7 @@
     <service id="argument_resolver.not_tagged_controller" alias="debug.argument_resolver.not_tagged_controller"/>
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id=".service_locator.JBAFp66" alias=".service_locator.KfbR3DY"/>
+    <service id=".service_locator.CZNxtqm" alias=".service_locator.y2D9fmo"/>
     <service id=".service_locator.T8.TLJR" alias=".service_locator.T7xmfzk"/>
     <service id=".service_locator.S3Bk2.h" alias=".service_locator.GNc8e5B"/>
     <service id=".service_locator.L0rFhJm" alias=".service_locator.GVyCdgr"/>

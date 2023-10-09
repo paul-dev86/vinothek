@@ -6,6 +6,7 @@ return [
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], [], []],
     'index' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], [], []],
     'shop' => [[], ['_controller' => 'App\\Controller\\ShopController::index'], [], [['text', '/shop']], [], [], []],
+    'basket' => [[], ['_controller' => 'App\\Controller\\BasketController::index'], [], [['text', '/basket']], [], [], []],
     'product' => [[], ['_controller' => 'App\\Controller\\ProductController::index'], [], [['text', '/product']], [], [], []],
     'create-product' => [[], ['_controller' => 'App\\Controller\\ProductController::createProduct'], [], [['text', '/create-product']], [], [], []],
     'edit-product' => [['id'], ['_controller' => 'App\\Controller\\ProductController::editProduct'], [], [['variable', '', '[^/]++', 'id', true], ['text', '/edit-product']], [], [], []],

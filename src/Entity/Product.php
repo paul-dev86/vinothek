@@ -40,7 +40,7 @@ class Product
     private $retailPrice;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="decimal", precision=8, scale=2)
      */
     private $weight;
 
@@ -128,12 +128,12 @@ class Product
         return $this;
     }
 
-    public function getWeight(): ?int
+    public function getWeight(): ?string
     {
         return $this->weight;
     }
 
-    public function setWeight(int $weight): self
+    public function setWeight(?string $weight): self
     {
         $this->weight = $weight;
 

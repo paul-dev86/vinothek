@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Product;
 use App\Form\ProductType;
+use App\Repository\ProductRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,10 +15,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProductController extends AbstractController
 {
 
-    public function index(): Response
+    public function index(ProductRepository $productRepo): Response
     {
+        $products = $productRepo->findAll();
+
         return $this->render('product/index.html.twig', [
-            'controller_name' => 'ProductController',
+            'products' => $products,
+        ]);
+    }
+
+    public function editProduct($id, ProductRepository $productRepo): Response
+    {
+        return $this->render('product/edit-product.html.twig', [
+            'selectedProduct' => $productRepo->find($id),
         ]);
     }
 

@@ -9,6 +9,10 @@ shop:
 
 #Public links end
 
+basket:
+    path: /basket
+    controller: App\Controller\BasketController::index
+
 product:
     path: /product
     controller: App\Controller\ProductController::index
@@ -29,6 +33,8 @@ delete-product:
     #path: /create-all-properties
     #controller: App\Controller\ProductPropertiesController::index
 
+# Product Properties
+
 create-category:
     path: /create-category
     controller: App\Controller\ProductPropertiesController::createCategory
@@ -44,4 +50,6 @@ create-region:
 create-vine-grape:
     path: /create-vine-grape
     controller: App\Controller\ProductPropertiesController::createVineGrape
+
+# Product Properties end
 

@@ -39,6 +39,7 @@ class ProductType extends AbstractType
                 'label' => 'Verkaufspreis'
             ])
             ->add('weight', NumberType::class, [
+                'input' => 'string',
                 'label' => 'Produktgewicht'
             ])
             ->add('productNumber', NumberType::class, [
